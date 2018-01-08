@@ -27,7 +27,9 @@ private bool CanWatchTwoOhNDupes(int flightLength, int[] movieLengths)
 		int remainder = flightLength - movieLengths[i];
 		if (!remainders.ContainsKey(remainder))
 		{
-			remainders.Add(flightLength - movieLengths[i], new HashSet<int>(new[] { i }));
+			var indexSet = new HashSet<int>();
+			indexSet.Add(i);
+			remainders.Add(flightLength - movieLengths[i], indexSet);
 		}
 		else
 		{
